@@ -14,7 +14,7 @@ export const OtherMessage = ({ message, createdAt, from }: Props) => {
         {`${from}: ${message}`}
         <br />
         <small>
-          {moment(createdAt).format('DD-MM-YYYY')}
+          {moment(createdAt).format('DD-MM-YYYY hh:mm')}
         </small>
     </div>
   )

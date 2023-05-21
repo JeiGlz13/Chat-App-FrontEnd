@@ -1,4 +1,5 @@
 import { useState, SyntheticEvent, ChangeEvent } from 'react';
+import { toast } from 'react-toastify';
 
 export const useFormMessage = () => {
   const [formValues, setFormValues] = useState({
@@ -16,7 +17,21 @@ export const useFormMessage = () => {
 
   const selectNickname = (event: SyntheticEvent) => {
     event.preventDefault();
-    setIsNicknameDisabled(true);
+    if (formValues?.nickname) {
+      setIsNicknameDisabled(true);
+      return;
+    }
+
+    toast.error('¡El nickName no puede ser vacio!', {
+      position: 'top-left',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
   };
 
   const handleInputChange = ({ target }: ChangeEvent<HTMLInputElement>) => {

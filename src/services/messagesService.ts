@@ -14,6 +14,6 @@ const saveMessage = (message: IMessage) => messageInstance
     .post('save', message);
 
 export {
-    getMessages,
-    saveMessage,
+  getMessages,
+  saveMessage,
 }
